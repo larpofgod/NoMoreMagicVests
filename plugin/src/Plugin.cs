@@ -5,13 +5,16 @@ using HarmonyLib;
 using UnityEngine;
 
 // TODO: Change 'YourName' to your name. 
-namespace larpofgod
+namespace LarpOfGod
 {
     // TODO: Change 'YourPlugin' to the name of your plugin
-    [BepInAutoPlugin]
+    [BepInEx.BepInPlugin(NoMoreMagicVests.Id, "NoMoreMagicVests", "1.0.0")]
     [BepInProcess("h3vr.exe")]
     public partial class NoMoreMagicVests : BaseUnityPlugin
     {
+        public const string Id = "larpofgod.nomoremagicvests";
+        public static string Name => "NoMoreMagicVests";
+        public static string Version => "1.0.0";
         /* == Quick Start == 
          * Your plugin class is a Unity MonoBehaviour that gets added to a global game object when the game starts.
          * You should use Awake to initialize yourself, read configs, register stuff, etc.
