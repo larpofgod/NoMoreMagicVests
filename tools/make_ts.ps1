@@ -33,6 +33,7 @@ New-Item -ItemType Directory -Path $TempDir | Out-Null
 Copy-Item (Join-Path $RootDir "manifest.json") $TempDir
 Copy-Item (Join-Path $RootDir "icon.png") $TempDir
 Copy-Item (Join-Path $RootDir "README.md") $TempDir
+Copy-Item (Join-Path $RootDir "CHANGELOG.md") $TempDir
 Copy-Item (Join-Path $RootDir "LICENSE") $TempDir -ErrorAction Ignore
 Copy-Item "${OutputPath}${PluginName}.dll" $TempDir
 Copy-Item "${OutputPath}${PluginName}.dll.mdb" $TempDir -ErrorAction Ignore
