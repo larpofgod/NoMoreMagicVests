@@ -1,3 +1,6 @@
+## v1.0.3
+Actually added changelog this time
+
 ## v1.0.2
 Added changelog
 
