@@ -1,5 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
+using BepInEx.Configuration;
 using FistVR;
 using HarmonyLib;
 using UnityEngine;
@@ -8,13 +9,13 @@ using UnityEngine;
 namespace LarpOfGod
 {
     // TODO: Change 'YourPlugin' to the name of your plugin
-    [BepInEx.BepInPlugin(NoMoreMagicVests.Id, "NoMoreMagicVests", "1.0.0")]
+    [BepInEx.BepInPlugin(NoMoreMagicVests.Id, "NoMoreMagicVests", "1.0.1")]
     [BepInProcess("h3vr.exe")]
     public partial class NoMoreMagicVests : BaseUnityPlugin
     {
         public const string Id = "larpofgod.nomoremagicvests";
         public static string Name => "NoMoreMagicVests";
-        public static string Version => "1.0.0";
+        public static string Version => "1.0.1";
         /* == Quick Start == 
          * Your plugin class is a Unity MonoBehaviour that gets added to a global game object when the game starts.
          * You should use Awake to initialize yourself, read configs, register stuff, etc.
@@ -26,6 +27,7 @@ namespace LarpOfGod
          * Also check out the Unity documentation: https://docs.unity3d.com/560/Documentation/ScriptReference/index.html
          * And the C# documentation: https://learn.microsoft.com/en-us/dotnet/csharp/
          */
+        public static ConfigEntry<float> damageAbsorbtionMultiplier;
         [HarmonyPatch(typeof(SosigWearable), nameof(SosigWearable.Damage))]
         class Patch
         {
@@ -78,7 +80,7 @@ namespace LarpOfGod
                             {
                                 __instance.S.SetLastDamageReceivedClass(d.Class);
                             }
-                            d.Dam_Blunt *= __instance.BluntDamageTransmission / 2f;
+                            d.Dam_Blunt *= __instance.BluntDamageTransmission / damageAbsorbtionMultiplier.Value;
                             __instance.L.Damage(d);
                         }
                     }
@@ -114,6 +116,8 @@ namespace LarpOfGod
         private void Awake()
         {
             Logger = base.Logger;
+            damageAbsorbtionMultiplier = Config.Bind("General", "damageAbsorbtionMultiplier", 2f, "Higher values mean armor absorbs more damage (bottom capped at 1)");
+            damageAbsorbtionMultiplier.Value = Mathf.Max(1, damageAbsorbtionMultiplier.Value);
             Harmony.CreateAndPatchAll(typeof(Patch));
             // Your plugin's ID, Name, and Version are available here.
             Logger.LogMessage($"Hello, world! Sent from {Id} {Name} {Version}");

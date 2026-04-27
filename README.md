@@ -1,1 +1,3 @@
 Tired of non penetrating ammunition being useless against armour? Sick of AP rifle TNH meta? This mod aims to fix that by making armour let through a percentage of blunt damage from any bullet impact thus making armour act truer to real life because armour degrades and getting shot at with any bullet hurts!
+
+You can configure amount of damage absorbed in the config file (mod has to run at least once to generate it)
