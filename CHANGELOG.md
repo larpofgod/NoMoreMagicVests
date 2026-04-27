@@ -1,3 +1,6 @@
+## v1.0.4
+Fixed armour letting through piercing damage thus making sosigs bleed on non pen
+
 ## v1.0.3
 Actually added changelog this time
 

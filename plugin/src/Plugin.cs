@@ -9,13 +9,13 @@ using UnityEngine;
 namespace LarpOfGod
 {
     // TODO: Change 'YourPlugin' to the name of your plugin
-    [BepInEx.BepInPlugin(NoMoreMagicVests.Id, "NoMoreMagicVests", "1.0.3")]
+    [BepInEx.BepInPlugin(NoMoreMagicVests.Id, "NoMoreMagicVests", "1.0.4")]
     [BepInProcess("h3vr.exe")]
     public partial class NoMoreMagicVests : BaseUnityPlugin
     {
         public const string Id = "larpofgod.nomoremagicvests";
         public static string Name => "NoMoreMagicVests";
-        public static string Version => "1.0.3";
+        public static string Version => "1.0.4";
         /* == Quick Start == 
          * Your plugin class is a Unity MonoBehaviour that gets added to a global game object when the game starts.
          * You should use Awake to initialize yourself, read configs, register stuff, etc.
@@ -80,6 +80,8 @@ namespace LarpOfGod
                             {
                                 __instance.S.SetLastDamageReceivedClass(d.Class);
                             }
+                            d.Dam_Piercing *= 0;
+                            d.Dam_Blunt = d.Dam_TotalKinetic;
                             d.Dam_Blunt *= __instance.BluntDamageTransmission / damageAbsorbtionMultiplier.Value;
                             __instance.L.Damage(d);
                         }

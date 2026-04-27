@@ -3,7 +3,7 @@
 	<!-- TODO: Change these values! -->
 	<PropertyGroup>
 		<AssemblyName>larpofgod.nomoremagicvests</AssemblyName>
-		<Version>1.0.3</Version>
+		<Version>1.0.4</Version>
 		<Authors>larpofgod</Authors>
 		<AssemblyTitle>NoMoreMagicVests</AssemblyTitle>
 		<Description>Makes armour let through a percentage of blunt damage from any bullet impact.</Description>
