@@ -6,7 +6,7 @@
 		<Version>1.0.0</Version>
 		<Authors>larpofgod</Authors>
 		<AssemblyTitle>NoMoreMagicVests</AssemblyTitle>
-		<Description>Tired of non penetrating ammunition being useless against armour? Sick of AP rifle TNH meta? This mod aims to fix that by making armour let through a percentage of blunt damage from any bullet impact thus making armour act truer to real life because armour degrades and getting shot at with any bullet hurts!</Description>
+		<Description>Makes armour let through a percentage of blunt damage from any bullet impact.</Description>
 		<PackageProjectUrl>https://github.com/larpofgod/NoMoreMagicVests</PackageProjectUrl>
 	</PropertyGroup>
 
